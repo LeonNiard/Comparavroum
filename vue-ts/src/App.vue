@@ -1,5 +1,4 @@
 <template>
-  <img id="logo" alt="Vue logo" src="./assets/logo.png">
   <contenuApp msg="Comparavroum"/>
 </template>
 
@@ -22,9 +21,5 @@ export default {
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
-  }
-  #logo{
-    width: 100px;
-    height: 100px;
   }
 </style>
