@@ -1,18 +1,15 @@
 <template>
   <img id="logo" alt="Vue logo" src="./assets/logo.png">
   <contenuApp msg="Comparavroum"/>
-  <contenuComparateur msg="Comparateur"/>
 </template>
 
 <script>
 import contenuApp from './components/contenuApp.vue'
-import contenuComparateur from './components/contenuComparateur.vue'
 
 export default {
   name: 'App',
   components: {
     contenuApp,
-    contenuComparateur
   }
 }
 </script>
