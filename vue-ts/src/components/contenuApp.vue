@@ -1,36 +1,57 @@
 <template>
-  <div>
-    <h1>Comparavroum</h1>
-  </div>
-  <div id="presentation">
-    <p>Nous sommes le meilleur comparateur de bagnoles sur l'internet du monde tout entier</p>   
-  </div>
-  <div id="boutons">
-    <button v-on:click="isHidden = true">Comparateur</button>
-    <button>Tous les véhicules</button>
-  </div>
-
-  <div id="conteneur">
+  <nav>
+    <div>
+      <img id="logo" alt="Vue logo" src="../assets/logo.png">
+      <h1>Comparavroum</h1>
+    </div>
+    <div id="presentation">
+      <p>Nous sommes le meilleur comparateur de bagnoles sur l'internet du monde tout entier</p>   
+    </div>
+    <div id="boutons">
+      <button id="bComparateur" v-on:click="afficherVehicules = false, afficherComparateur = true, changeColor('bComparateur')" >Comparateur</button>
+      <button id="bVehicules" v-on:click="afficherVehicules = true, afficherComparateur = false, changeColor('bVehicules')" >Tous les véhicules</button>
+    </div>
+  </nav>
+  <!-- Contenu de la page. Par défaut : comparateur-->
+  <div id="comparateur" v-if="afficherComparateur">
         <div id="choix1">
-            <img src="../assets/ajout_vehicule.png"/>
+            <img src="../assets/ajout_vehicule.png" v-on:click="afficherChoix = true"/>
         </div>
         <div id="choix2">
-            <img src="../assets/ajout_vehicule.png"/>
+            <img src="../assets/ajout_vehicule.png" v-on:click="afficherChoix = true"/>
         </div>
-    </div>
-    <div id="choixVehicule" v-if="isHidden">
-        <div>
-            <h2 id="exit" v-on:click="isHidden = false">X</h2>
-        </div>
-        <h1>Sélectionnez un véhicule</h1>
-    </div>
+  </div>
+  <div id="choixVehicule" v-if="afficherChoix">
+      <div>
+          <h2 class="exit" v-on:click="afficherChoix = false">X</h2>
+      </div>
+      <h1>Sélectionnez un véhicule</h1>
+  </div>
+  <!-- Afficher les véhicules -->
+  <div id="listeVehicules" v-if="afficherVehicules">
+      <h1>VROUUUUM... 🚗</h1>
+  </div>
 </template>
 
 <script>
     export default {
     data() {
         return {
-        isHidden: false,
+        afficherChoix: false,  /*Afficher ou non le choix de gauche*/
+        afficherChoix2: false, /*Afficher ou non le choix de droite*/
+        afficherComparateur: true, /*Afficher la section "Comparateur"*/
+        afficherVehicules: false, /*Afficher la section "Tous les véhicules"*/
+        changeColor: function(id) {
+          /*Cette fonction permet de changer l'apparence des boutons en fonction de s'ils sont actifs ou non 
+          Ici on donne une valeur par défaut*/
+          document.getElementById("bComparateur").style.backgroundColor = "#C1022C"
+          document.getElementById("bVehicules").style.backgroundColor = "#C1022C"
+          document.getElementById("bComparateur").style.color = "white"
+          document.getElementById("bVehicules").style.color = "white"
+          /*Définition d'un affichage pour un bouton lorsqu'il est cliqué. Il devient donc actif*/
+          document.getElementById(id).style.backgroundColor = "white"
+          document.getElementById(id).style.color = "#C1022C"
+      }  
         }
     }
     };
@@ -38,13 +59,13 @@
 
 
 <style>
-    #conteneur{
+    #comparateur{
         display : flex;
         justify-content : center;
         align-items: center;
         justify-content: center;
     }
-    #conteneur div{
+    #comparateur div{
         margin : 20px;
     }
     #choixVehicule{
@@ -58,6 +79,15 @@
         text-align: center;
         margin: 0;
         background-color: rgba(0, 0, 0, .5);
+    }
+
+    #listeVehicules{
+      position: flex;
+      background-color: white;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     #choixVehicule h1{
@@ -90,15 +120,25 @@
     border: solid 1px #C1022C;
     margin : 15px;
     font-size: 30px;
-    background-color : #C1022C;
-    color : white;
     padding : 10px;
     border-radius : 30px;
+    cursor: pointer; 
+  }
+  #bComparateur{
+    background-color : white;
+    color : #C1022C;
   }
 
-  #boutons button:hover {
-    color: red;
-    background-color : white;
-    cursor: pointer;    
+  #bVehicules{
+    background-color : #C1022C;
+    color : white;
+  }
+
+  img:hover{
+    cursor: pointer;
+  }
+  #logo{
+    width: 100px;
+    height: 100px;
   }
 </style>
