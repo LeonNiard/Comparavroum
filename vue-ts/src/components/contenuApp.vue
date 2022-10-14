@@ -12,7 +12,7 @@
       <button id="bVehicules" v-on:click="afficherVehicules = true, afficherComparateur = false, changeColor('bVehicules')" >Tous les véhicules</button>
     </div>
   </nav>
-  <!-- Contenu de la page -->
+  <!-- Contenu de la page. Par défaut : comparateur-->
   <div id="comparateur" v-if="afficherComparateur">
         <div id="choix1">
             <img src="../assets/ajout_vehicule.png" v-on:click="afficherChoix = true"/>
@@ -37,11 +37,10 @@
     export default {
     data() {
         return {
-        afficherChoix: false,
-        afficherChoix2: false,
-        afficherComparateur: true,
-        afficherVehicules: false,
-        afficherNav: true,
+        afficherChoix: false,  /*Afficher ou non le choix de gauche*/
+        afficherChoix2: false, /*Afficher ou non le choix de droite*/
+        afficherComparateur: true, /*Afficher la section "Comparateur"*/
+        afficherVehicules: false, /*Afficher la section "Tous les véhicules"*/
         changeColor: function(id) {
           document.getElementById("bComparateur").style.backgroundColor = "#C1022C"
           document.getElementById("bVehicules").style.backgroundColor = "#C1022C"
