@@ -42,10 +42,13 @@
         afficherComparateur: true, /*Afficher la section "Comparateur"*/
         afficherVehicules: false, /*Afficher la section "Tous les véhicules"*/
         changeColor: function(id) {
+          /*Cette fonction permet de changer l'apparence des boutons en fonction de s'ils sont actifs ou non 
+          Ici on donne une valeur par défaut*/
           document.getElementById("bComparateur").style.backgroundColor = "#C1022C"
           document.getElementById("bVehicules").style.backgroundColor = "#C1022C"
           document.getElementById("bComparateur").style.color = "white"
           document.getElementById("bVehicules").style.color = "white"
+          /*Définition d'un affichage pour un bouton lorsqu'il est cliqué. Il devient donc actif*/
           document.getElementById(id).style.backgroundColor = "white"
           document.getElementById(id).style.color = "#C1022C"
       }  
