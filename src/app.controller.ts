@@ -9,4 +9,14 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get()
+  getCars(): void {
+    return this.appService.getCarList();
+  }
+
+  @Get()
+  getDetailsCar(carId): void {
+    return this.appService.getDetailsCar(carId);
+  }
 }
