@@ -53,15 +53,6 @@
               <p>BMW</p>
           </div>
       </li>
-      <li class="car-list-element">
-          <div class="car-list-image">
-              <img class="car-image" alt="car image" src="https://cars.chargetrip.io/6012a1bcf9c50f4aca28b283-7bd09b08ff87c4f68c733857e739ed033d8a4c83.png">
-          </div>
-          <div class="car-list-data">
-              <p><strong>e-SpaceTourer XL 75 kWh (early 2021)</strong></p>
-              <p>Citroen</p>
-          </div>
-      </li>
   </div>
 
   <!-- Afficher les véhicules -->
