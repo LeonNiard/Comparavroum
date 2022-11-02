@@ -9,7 +9,7 @@
     </div>
     <div id="boutons">
       <button id="bComparateur" v-on:click="afficherVehicules = false, afficherComparateur = true, changeColor('bComparateur')" >Comparateur</button>
-      <button id="bVehicules" v-on:click="afficherVehicules = true, afficherComparateur = false, changeColor('bVehicules')" >Tous les véhicules</button>
+      <button id="bVehicules" v-on:click="afficherVehicules = true, afficherComparateur = false, changeColor('bVehicules')" @click="methodTest()">Tous les véhicules</button>
     </div>
   </nav>
   <!-- Contenu de la page. Par défaut : comparateur-->
@@ -30,10 +30,13 @@
   <!-- Afficher les véhicules -->
   <div id="listeVehicules" v-if="afficherVehicules">
       <h1>VROUUUUM... 🚗</h1>
+
   </div>
 </template>
 
 <script>
+    import {getCarList} from "../api/api.client.js";
+
     export default {
     data() {
         return {
@@ -52,6 +55,11 @@
           document.getElementById(id).style.backgroundColor = "white"
           document.getElementById(id).style.color = "#C1022C"
       }  
+        }
+    },
+    methods: {
+        methodTest(){
+            getCarList();
         }
     }
     };
@@ -82,7 +90,7 @@
     }
 
     #listeVehicules{
-      position: flex;
+
       background-color: white;
       top: 0;
       left: 0;

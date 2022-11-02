@@ -1,5 +1,5 @@
 import qql from 'graphql-tag';
- 
+
 export const getCarListQuery = qql`
 query carList {
   carList(
@@ -20,7 +20,6 @@ query carList {
   }
 }
 `;
-
 
 export const getCarDetailsQuery = qql`
 query car($carId: ID) {
