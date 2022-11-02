@@ -15,10 +15,10 @@
   <!-- Contenu de la page. Par défaut : comparateur-->
   <div id="comparateur" v-if="afficherComparateur">
         <div id="choix1">
-            <img src="../assets/ajout_vehicule.png" v-on:click="afficherChoix = true" @click="methodTest()"/>
+            <img src="../assets/ajout_vehicule.png" v-on:click="afficherChoix = true"/>
         </div>
         <div id="choix2">
-            <img src="../assets/ajout_vehicule.png" v-on:click="afficherChoix = true" @click="methodTest()"/>
+            <img src="../assets/ajout_vehicule.png" v-on:click="afficherChoix = true"/>
         </div>
   </div>
   <div id="choixVehicule" v-if="afficherChoix">
@@ -26,13 +26,6 @@
           <h2 class="exit" v-on:click="afficherChoix = false">X</h2>
       </div>
       <h1>Sélectionnez un véhicule</h1>
-      <div>
-          <ul id="car-listBis" class="car-listBis">
-              <!-- Car list is being rendered through cars.js here -->
-          </ul>
-      </div>
-
-
   </div>
 
   <!-- Afficher les véhicules -->

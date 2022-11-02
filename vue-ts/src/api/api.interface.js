@@ -111,7 +111,7 @@ const formatCarData = data => {
   const generalData = {
     'Kilométrage max. par Chargetrip™': `${data.car.range.chargetrip_range.worst} - ${data.car.range.chargetrip_range.best} km`,
     'Kilométrage max.': `${data.car.range.real} km`,
-    'Battery': `${data.car.battery.usable_kwh} kWh`,
+    'Batterie': `${data.car.battery.usable_kwh} kWh`,
     'Compatible fast charge': data.car.routing.fast_charging_support,
     'Type de branchement': data.car.connectors[0].standard,
   };
