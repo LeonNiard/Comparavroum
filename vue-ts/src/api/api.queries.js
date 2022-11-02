@@ -10,7 +10,6 @@ query carList {
     naming {
       make
       model
-      chargetrip_version
     }
     media {
       image {

@@ -1,5 +1,5 @@
 <template>
-  <nav>
+    <nav>
     <div>
       <img id="logo" alt="Vue logo" src="../assets/logo.png">
       <h1>Comparavroum</h1>
@@ -15,10 +15,10 @@
   <!-- Contenu de la page. Par défaut : comparateur-->
   <div id="comparateur" v-if="afficherComparateur">
         <div id="choix1">
-            <img src="../assets/ajout_vehicule.png" v-on:click="afficherChoix = true"/>
+            <img src="../assets/ajout_vehicule.png" v-on:click="afficherChoix = true" @click="methodTest()"/>
         </div>
         <div id="choix2">
-            <img src="../assets/ajout_vehicule.png" v-on:click="afficherChoix = true"/>
+            <img src="../assets/ajout_vehicule.png" v-on:click="afficherChoix = true" @click="methodTest()"/>
         </div>
   </div>
   <div id="choixVehicule" v-if="afficherChoix">
@@ -26,12 +26,77 @@
           <h2 class="exit" v-on:click="afficherChoix = false">X</h2>
       </div>
       <h1>Sélectionnez un véhicule</h1>
-  </div>
-  <!-- Afficher les véhicules -->
-  <div id="listeVehicules" v-if="afficherVehicules">
-      <h1>VROUUUUM... 🚗</h1>
+      <div>
+          <ul id="car-listBis" class="car-listBis">
+              <!-- Car list is being rendered through cars.js here -->
+          </ul>
+      </div>
+
 
   </div>
+
+  <!-- Afficher les véhicules -->
+  <div id="listeVehicules" v-if="afficherVehicules">
+      <div class="card">
+          <header>
+              <h1>Voitures</h1>
+              <p>Sélectionnez un véhicule pour avoir des détails</p>
+          </header>
+          <main>
+              <ul id="car-list" class="car-list">
+                  <!-- Car list is being rendered through cars.js here -->
+              </ul>
+          </main>
+
+          <!-- Second page that renders all the car details -->
+          <div id="car-details" class="car-details">
+              <div class="top-bar">
+                  <div id="car-details-back" class="back">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M12.7071 4.29289C13.0976 4.68342 13.0976 5.31658 12.7071 5.70711L7.41421 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H7.41421L12.7071 18.2929C13.0976 18.6834 13.0976 19.3166 12.7071 19.7071C12.3166 20.0976 11.6834 20.0976 11.2929 19.7071L4.29289 12.7071C3.90237 12.3166 3.90237 11.6834 4.29289 11.2929L11.2929 4.29289C11.6834 3.90237 12.3166 3.90237 12.7071 4.29289Z"
+                                  fill="white"
+                          />
+                      </svg>
+                  </div>
+                  <p><strong>Détails voiture</strong></p>
+              </div>
+              <div class="car-details-image-wrapper">
+                  <img id="car-details-image" class="car-details-image" src="" />
+                  <div class="car-details-brand-wrapper">
+                      <img id="car-details-brand" class="car-details-brand" src="" />
+                  </div>
+              </div>
+              <section class="car-details-naming">
+                  <h1 id="car-details-name">-</h1>
+                  <p id="car-details-version">-</p>
+              </section>
+              <section>
+                  <h3>Général</h3>
+                  <ul id="car-details-general">
+                      <!-- Car details rendered through car.js here -->
+                  </ul>
+              </section>
+              <section>
+                  <h3>Distance</h3>
+                  <!-- Car details rendered through car.js here -->
+                  <table>
+                      <tbody id="car-details-range"></tbody>
+                  </table>
+              </section>
+              <section>
+                  <h3>Performances</h3>
+                  <ul id="car-details-performance">
+                      <!-- Car details rendered through car.js here -->
+                  </ul>
+              </section>
+          </div>
+      </div>
+  </div>
+
+
 </template>
 
 <script>
@@ -44,23 +109,25 @@
         afficherChoix2: false, /*Afficher ou non le choix de droite*/
         afficherComparateur: true, /*Afficher la section "Comparateur"*/
         afficherVehicules: false, /*Afficher la section "Tous les véhicules"*/
+
         changeColor: function(id) {
           /*Cette fonction permet de changer l'apparence des boutons en fonction de s'ils sont actifs ou non 
           Ici on donne une valeur par défaut*/
-          document.getElementById("bComparateur").style.backgroundColor = "#C1022C"
-          document.getElementById("bVehicules").style.backgroundColor = "#C1022C"
-          document.getElementById("bComparateur").style.color = "white"
-          document.getElementById("bVehicules").style.color = "white"
+          document.getElementById("bComparateur").style.backgroundColor = "#C1022C";
+          document.getElementById("bVehicules").style.backgroundColor = "#C1022C";
+          document.getElementById("bComparateur").style.color = "white";
+          document.getElementById("bVehicules").style.color = "white";
           /*Définition d'un affichage pour un bouton lorsqu'il est cliqué. Il devient donc actif*/
-          document.getElementById(id).style.backgroundColor = "white"
-          document.getElementById(id).style.color = "#C1022C"
+          document.getElementById(id).style.backgroundColor = "white";
+          document.getElementById(id).style.color = "#C1022C";
       }  
         }
     },
+
     methods: {
         methodTest(){
-            getCarList();
-        }
+            getCarList()
+        },
     }
     };
 </script>

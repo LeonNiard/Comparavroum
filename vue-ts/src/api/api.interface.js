@@ -109,31 +109,31 @@ export const formatCarDetails = carId => {
  */
 const formatCarData = data => {
   const generalData = {
-    'Chargetrip real range™': `${data.car.range.chargetrip_range.worst} - ${data.car.range.chargetrip_range.best} km`,
-    'Real range': `${data.car.range.real} km`,
-    'Usable battery': `${data.car.battery.usable_kwh} kWh`,
-    'Fast charging support': data.car.routing.fast_charging_support,
-    'Plug Type': data.car.connectors[0].standard,
+    'Kilométrage max. par Chargetrip™': `${data.car.range.chargetrip_range.worst} - ${data.car.range.chargetrip_range.best} km`,
+    'Kilométrage max.': `${data.car.range.real} km`,
+    'Battery': `${data.car.battery.usable_kwh} kWh`,
+    'Compatible fast charge': data.car.routing.fast_charging_support,
+    'Type de branchement': data.car.connectors[0].standard,
   };
 
   const rangeData = {
-    City: {
+    Ville: {
       best: `${data.car.range.best.city} km`,
       worst: `${data.car.range.worst.city} km`,
     },
-    Highway: {
+    Autoroute: {
       best: `${data.car.range.best.highway} km`,
       worst: `${data.car.range.worst.highway} km`,
     },
-    Combined: {
+    Mixte: {
       best: `${data.car.range.best.combined} km`,
       worst: `${data.car.range.worst.combined} km`,
     },
   };
 
   const performanceData = {
-    'Top speed': `${data.car.performance.top_speed ? data.car.performance.top_speed : '-'} km / u`,
-    Acceleration: `${data.car.performance.acceleration ? data.car.performance.acceleration : '-'} s`,
+    'Vitesse maximale': `${data.car.performance.top_speed ? data.car.performance.top_speed : '-'} km / u`,
+    Accélération: `${data.car.performance.acceleration ? data.car.performance.acceleration : '-'} s`,
   };
 
   return [generalData, rangeData, performanceData];
@@ -178,8 +178,8 @@ const renderCarListData = (elementId, data, isTable) => {
         'beforeend',
         `<tr>
         <th>Situation</th>
-        <th>Mild 23 ºC</th>
-        <th>Cold -10 ºC</th>
+        <th>Modéré 23 ºC</th>
+        <th>Froid -10 ºC</th>
       </tr>
       `,
     );
