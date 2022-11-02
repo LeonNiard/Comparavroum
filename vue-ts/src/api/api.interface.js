@@ -132,7 +132,7 @@ const formatCarData = data => {
   };
 
   const performanceData = {
-    'Vitesse maximale': `${data.car.performance.top_speed ? data.car.performance.top_speed : '-'} km / u`,
+    'Vitesse maximale': `${data.car.performance.top_speed ? data.car.performance.top_speed : '-'} km/h`,
     Accélération: `${data.car.performance.acceleration ? data.car.performance.acceleration : '-'} s`,
   };
 
