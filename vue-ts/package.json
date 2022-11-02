@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "graphql": "^16.6.0",
+    "urql": "^3.0.3",
     "vue": "^3.2.13"
   },
   "devDependencies": {
